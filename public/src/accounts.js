@@ -42,7 +42,6 @@ function getBooksPossessedByAccount(account, books, authors) { //seaches the arr
   });
   return result;
 }
-}
 
 
 module.exports = {
