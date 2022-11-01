@@ -25,7 +25,7 @@ function getBorrowersForBook(book, accounts) { //searches the database ad return
       }
     }
   }
-  return result.slice(0,10); //returns an arrof of 10 or fewer accounts
+  return results.slice(0,10); //returns an arrof of 10 or fewer accounts
 }
 
 module.exports = {
