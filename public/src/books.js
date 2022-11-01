@@ -15,7 +15,18 @@ function partitionBooksByBorrowedStatus(books) {
   return [listOfBooksBorrowed, listOfBooksAvailable];
 }
 
-function getBorrowersForBook(book, accounts) {}
+function getBorrowersForBook(book, accounts) { //searches the database ad returns an array with the account information of 10 or fewer accounts that have borrowed a book
+  const results = [];
+  for (let account of accounts) {
+    for (let i = 0; i < book.borrows.length; i++) {
+      if (account.id === book.borrows[i].id) {
+        const returned = book.borrows[i].returned;
+        result.push({...account, returned});
+      }
+    }
+  }
+  return result.slice(0,10); //returns an arrof of 10 or fewer accounts
+}
 
 module.exports = {
   findAuthorById,
