@@ -1,4 +1,7 @@
-function getTotalBooksCount(books) {}
+function getTotalBooksCount(books) {  //sorts through the database and returns a number that represents the total number of books in the database
+  const totalNumberOfBooks = books.map((book) => books);
+  return totalNumberOfBooks.length;
+}
 
 function getTotalAccountsCount(accounts) {}
 
