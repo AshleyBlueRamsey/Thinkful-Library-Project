@@ -10,8 +10,8 @@ function findBookById(books, id) {  //searches the database and returns an array
 //The first array contains books that are currently checked out
 //The second array contains books that have been returned
 function partitionBooksByBorrowedStatus(books) {  
-  const listOfBooksAvailable = books.filter((book) => book.borrows.returned === true);
-  const listOfBooksBorrowed = books.filter((book) => book.borrows.returned === false);
+  const listOfBooksAvailable = books.filter((book) => book.borrows.returned === false);
+  const listOfBooksBorrowed = books.filter((book) => book.borrows.returned === true); 
   return [listOfBooksBorrowed, listOfBooksAvailable];
 }
 
