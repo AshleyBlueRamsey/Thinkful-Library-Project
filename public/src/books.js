@@ -21,7 +21,7 @@ function getBorrowersForBook(book, accounts) { //searches the database ad return
     for (let i = 0; i < book.borrows.length; i++) {
       if (account.id === book.borrows[i].id) {
         const returned = book.borrows[i].returned;
-        result.push({...account, returned});
+        results.push({...account, returned});
       }
     }
   }
