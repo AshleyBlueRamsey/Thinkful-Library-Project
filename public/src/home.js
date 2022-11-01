@@ -11,7 +11,10 @@ function getTotalAccountsCount(accounts) { //sorts through the database and retu
   return numberOfAccounts;
 }
 
-function getBooksBorrowedCount(books) {}
+function getBooksBorrowedCount(books) { //sorts through the database and returns a number that represents the total number of books that are out on loan
+  const booksOnLoan = books.filter((book) => book.borrows[0].returned === false);
+  return booksOnLoan.length;
+}
 
 function getMostCommonGenres(books) {}
 
