@@ -21,6 +21,30 @@ function getTotalNumberOfBorrows(account, books) { //Searches through the array 
   return result;
 }
 
+
+function _findAuthor (book, authors) {//This is a helper function to find the author to assist the function that gathers the total number of books currently in possession of each account
+  const author = authors.find((author) => author.id === book.authorId);
+  return author;
+}
+
+function getBooksPossessedByAccount(account, books, authors) { //seaches the array and returns the total number of books currently in possession of each account
+  const currentBooksBorrowed = [];
+  books.forEach((book) => {
+    let borrowedBooks = book.borrows;
+    borrowedBooks.forEach((borrow) => {
+      if (borrow.id === account.id && !borrow.returned) {
+        currentBooksBorrowed.push(book);
+      }
+    });
+  });
+  let result = currentBooksBorrowed.map((book) => {
+    retur {...book, author: _findAuthor(book, authors)};
+  });
+  return result;
+}
+}
+
+
 module.exports = {
   findAccountById,
   sortAccountsByLastName,
