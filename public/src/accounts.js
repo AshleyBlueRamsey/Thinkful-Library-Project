@@ -1,4 +1,7 @@
-function findAccountById(accounts, id) {}
+function findAccountById(accounts, id) {
+  return accounts.find((account) => account.id.includes(id));
+}
+//Loops through the array and finds the account that matches the requested id
 
 function sortAccountsByLastName(accounts) {}
 
