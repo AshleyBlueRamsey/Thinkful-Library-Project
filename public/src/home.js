@@ -34,7 +34,19 @@ function getMostCommonGenres(books) { //Sorts through the database and returns a
   return _topFiveMostCommon(listOfMostFrequent);
 }
 
-function getMostPopularBooks(books) {}
+function getMostPopularBooks(books) { //Sorts through the database and returns an array with five or less names of the most popular books
+  const mostLikedBooks = [];
+  for (let book of books) {
+    const popular = book.borrows.length;
+    const best = mostLikedBooks.find((popularBook) => popularBook.name === book);
+    if (best) {
+      best.count++;
+    } else {
+      mostLikedBooks.push({ name: book.title, count: popular});
+    }
+  }
+  return _topFiveMostCommon(mostLikedBooks);//used the helper function named _topFiveMostCommon to assist with returning the top 5 results
+}
 
 function getMostPopularAuthors(books, authors) {}
 
