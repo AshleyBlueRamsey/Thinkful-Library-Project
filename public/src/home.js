@@ -48,21 +48,22 @@ function getMostPopularBooks(books) { //Sorts through the database and returns a
   return _topFiveMostCommon(mostLikedBooks);//used the helper function named _topFiveMostCommon to assist with returning the top 5 results
 }
 
-function getMostPopularAuthors(books, authors) {  //sorts through the database and returns 5 or less of the most popular authors whose books have been checked out the most
+function getMostPopularAuthors(books, authors) {//sorts through the database and returns 5 or less of the most popular authors whose books have been checked out the most
   const bestAuthors = [];
   for (let author of authors) {
-    const nameOfAuthor = '${author.name.first} ${author.name.last}';
-    const counts = 0;
+    const nameOfAuthor = `${author.name.first} ${author.name.last}`;
+    let count = 0;
     for (let book of books) {
-      if (author.id === book.author.id) {
-        counts += book.borrows.length;
+      if (author.id === book.authorId) {
+        count += book.borrows.length;
       }
     }
-    const ListOfAuthors = { name: nameOfAuthor, counts: count};
+    const listOfAuthors = { name: nameOfAuthor, count: count};
     bestAuthors.push(listOfAuthors);
   }
-  return _topFiveMostCommon(bestAuithors); // used the helper function to ensure the results only have 5 or less of the most Popular Authors
+  return _topFiveMostCommon(bestAuthors);
 }
+    
 
 module.exports = {
   getTotalBooksCount,
