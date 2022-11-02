@@ -38,7 +38,7 @@ function getBooksPossessedByAccount(account, books, authors) { //seaches the arr
     });
   });
   let result = currentBooksBorrowed.map((book) => {
-    retur {...book, author: _findAuthor(book, authors)};
+    return {...book, author: _findAuthor(book, authors)};
   });
   return result;
 }
